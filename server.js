@@ -13,12 +13,14 @@ const server = new ApolloServer({
   subscriptions: { path: "/" },
 });
 
-server.listen().then(({ url, subscriptionsUrl }) => {
-  console.log(`🚀 Server ready at ${url}`);
-  console.log(`🚀 Subscriptions ready at ${subscriptionsUrl}`);
+server
+  .listen({ port: process.env.PORT || 4000 })
+  .then(({ url, subscriptionsUrl }) => {
+    console.log(`🚀 Server ready at ${url}`);
+    console.log(`🚀 Subscriptions ready at ${subscriptionsUrl}`);
 
-  sequelize
-    .authenticate()
-    .then(() => console.log("Database connected!!"))
-    .catch((err) => console.log(err));
-});
+    sequelize
+      .authenticate()
+      .then(() => console.log("Database connected!!"))
+      .catch((err) => console.log(err));
+  });
