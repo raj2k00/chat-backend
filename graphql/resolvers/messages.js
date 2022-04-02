@@ -33,7 +33,7 @@ module.exports = {
     },
   },
   Mutation: {
-    sendMessage: async (parent, { to, content }, { user, pubsub }) => {
+    sendMessage: async (parent, {uuid, to, content }, { user, pubsub }) => {
       try {
         if (!user) throw new AuthenticationError("Unauthenticated");
         const recipient = await User.findOne({ where: { username: to } });
@@ -49,6 +49,7 @@ module.exports = {
         const message = await Message.create({
           from: user.username,
           to,
+          uuid,
           content,
         });
         pubsub.publish("NEW_MESSAGE", { newMessage: message });

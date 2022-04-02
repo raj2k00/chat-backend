@@ -19,7 +19,14 @@
     "dev": "nodemon server.js --ignore client/",
     "start": "node server.js"
   },
-  "keywords": ["Chat-app","Sequelize","MySQl","GraphQl","Apollo Server","React"],
+  "keywords": [
+    "Chat-app",
+    "Sequelize",
+    "MySQl",
+    "GraphQl",
+    "Apollo Server",
+    "React"
+  ],
   "author": "mohanraj g",
   "license": "ISC"
 }

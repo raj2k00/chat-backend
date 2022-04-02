@@ -30,6 +30,11 @@ module.exports = {
         defaultValue: false,
         allowNull: false,
       },
+      hasSent: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

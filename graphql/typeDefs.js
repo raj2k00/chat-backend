@@ -16,6 +16,7 @@ module.exports = gql`
     to: String!
     createdAt: String!
     hasSeen: Boolean!
+    hasSent: Boolean!
   }
   type Query {
     getUsers: [User]!
@@ -29,7 +30,7 @@ module.exports = gql`
       password: String!
       confirmPassword: String!
     ): User!
-    sendMessage(to: String!, content: String!): Message!
+    sendMessage(uuid: String, to: String!, content: String!): Message!
     readMessage(uuid: String!, hasSeen: Boolean!): Message!
   }
   type Subscription {
